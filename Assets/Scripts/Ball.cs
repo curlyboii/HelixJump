@@ -21,6 +21,6 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        rb.AddForce(Vector3.up * jumpForce);
+        rb.velocity = new Vector3(0, jumpForce,0);
     }
 }
