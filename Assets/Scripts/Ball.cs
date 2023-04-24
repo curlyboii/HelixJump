@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public float jumpForce;
     public GameObject splashPrefab;
 
+    public GameObject scoreText;
+    public GameObject wonText;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +40,14 @@ public class Ball : MonoBehaviour
         else if (materialName == "DangerPlatform (Instance)")
         {
             //gameOver
+            GameManager.instance.RestartGame();
 
         }
         else if (materialName == "LastRing (Instance)")
         {
             //Win
-
+            scoreText.SetActive(false);
+            wonText.SetActive(true);
         }
     }
 }

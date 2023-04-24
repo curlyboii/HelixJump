@@ -9,6 +9,15 @@ public class GameManager : MonoBehaviour
 {
     private int score;
     public Text textScore;
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        { 
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
