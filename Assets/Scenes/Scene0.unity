@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbda964fa4399994b9e86fa736f96fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 0
+  rotateSpeed: 4
 --- !u!1 &247056563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,8 +2878,9 @@ GameObject:
   - component: {fileID: 1056452826}
   - component: {fileID: 1056452825}
   - component: {fileID: 1056452829}
+  - component: {fileID: 1056452830}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2977,8 +2978,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1056452830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056452824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d950de004652a4543bb7afd1c42c9803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1056452829}
+  jumpForce: 100
 --- !u!1001 &1065335744
 PrefabInstance:
   m_ObjectHideFlags: 0
