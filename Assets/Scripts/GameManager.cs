@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     private int score;
     public Text textScore;
     public static GameManager instance;
+    public GameObject gameplayUI;
+    public GameObject menuUI;
+
+    bool firstInput = true;
+    public bool gameStarted;
 
     private void Awake()
     {
@@ -27,7 +32,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!gameStarted)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameStart();
+            }
+        }
+
     }
 
     public void GameScorePlus(int ringScore)
@@ -40,4 +52,38 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    void GameStart()
+    { 
+    
+        gameplayUI.SetActive(true);
+        menuUI.SetActive(false);
+
+    }
+
+    public void GameOver()
+    {
+
+        gameplayUI.SetActive(false);
+
+    }
+
+    void CheckInput()
+    {
+
+        if(!firstInput)
+        {
+            firstInput = false;
+            return;
+
+        }
+        if (Input.GetMouseButtonDown(0))
+        { 
+        
+
+        
+        }
+
+    }
+
 }

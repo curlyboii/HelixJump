@@ -11,6 +11,9 @@ public class Ball : MonoBehaviour
     public GameObject scoreText;
     public GameObject wonText;
 
+    public GameObject gameOverPanel;
+    public GameObject ball;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class Ball : MonoBehaviour
         splash.transform.SetParent(collision.gameObject.transform);
 
         string materialName = collision.gameObject.GetComponent<MeshRenderer>().material.name; //name material which we collide
-        Debug.Log(materialName);
+
 
         if(materialName == "PlatformSafeMat (Instance)")
         {
@@ -40,7 +43,10 @@ public class Ball : MonoBehaviour
         else if (materialName == "DangerPlatform (Instance)")
         {
             //gameOver
-            GameManager.instance.RestartGame();
+            gameOverPanel.SetActive(true);
+            ball.SetActive(false);
+            GameManager.instance.GameOver();
+
 
         }
         else if (materialName == "LastRing (Instance)")
@@ -49,5 +55,12 @@ public class Ball : MonoBehaviour
             scoreText.SetActive(false);
             wonText.SetActive(true);
         }
+    }
+
+    public void RestartButton()
+    {
+
+        GameManager.instance.RestartGame();
+
     }
 }
